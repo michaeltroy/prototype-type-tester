@@ -17,9 +17,9 @@
              type="range"
              min="8"
              max="64"
-             value="12"
+             value="44"
              oninput="theUpdate(value)" />
-      <output id="typeSize">24</output>
+      <output id="typeSize">44</output>
     </div>
 
     <!-- Mock: font style select -->
@@ -29,7 +29,9 @@
         <option value="bold">Bold</option>
         <option value="italic" selected>Italic</option>
       </select>
-      <p id="lineOfType">You selected <span id="youSelected"></span></p>
+      <p id="lineOfType">
+        <input id="foxy" value="The quick brown fox" />
+      </p>
     </div>
 
     <script>
@@ -49,21 +51,34 @@
           youSelected.style.fontSize = fontSize + 'px';
         })
 
+        var selectIndex = fontSelect.selectedIndex;
         var fontSelect = document.getElementById('fontSelect');
-        var youSelected = document.getElementById('youSelected');
 
-        youSelected.innerHTML = fontSelect[fontSelect.selectedIndex].text;
+        var selectVal = fontSelect.options[selectIndex].value;
+        var theLine = document.getElementById('lineOfType');
+        theLine.style.fontStyle = selectVal.toString();
+        theLine.style.fontWeight = selectVal.toString();
 
         fontSelect.addEventListener('change', function() {
           var selectIndex = fontSelect.selectedIndex;
           var selectVal = fontSelect.options[selectIndex].value;
           var selectText = fontSelect.options[selectIndex].text;
-          var youSelected = document.getElementById('youSelected');
+
           var theLine = document.getElementById('lineOfType');
-          youSelected.innerHTML = selectText;
+
           theLine.style.fontStyle = selectVal.toString();
           theLine.style.fontWeight = selectVal.toString();
         })
+
+        var foxy = document.querySelector('#foxy');
+        foxy.addEventListener('change', function() {
+          if (foxy.value === "hello") {
+            document.body.style.backgroundColor = "goldenrod";
+          } else {
+            document.body.style.backgroundColor = "white";
+          }
+        });
+
 
       </script>
 
