@@ -4,9 +4,9 @@ import { browserHistory, Router, Route, Link, History } from 'react-router'
 
 // import NotFound from './ui/404'
 
-import HelloWorld from './ui/hello-world'
+import TypeTester from './ui/type-tester'
 
 ReactDOM.render(
-  <HelloWorld />,
+  <TypeTester />,
   document.getElementById('content')
 );
