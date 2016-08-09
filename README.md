@@ -1,5 +1,7 @@
 # Type testing tool prototype
 
+[Dev site](https://prototype-type-tester.firebaseapp.com)
+
 Tool for testing type and fonts in the browser.
 
 ## Run the scripts
