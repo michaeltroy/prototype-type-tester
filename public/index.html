@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>Type tester</title>
-    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,700,500' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="./build/index.css">
   </head>
   <body>
@@ -13,37 +13,59 @@
 
     <!-- Mock: Slider -->
     <div>
-      <input type="range"
-             min="0"
-             max="10"
-             value="5"
+      <input id="fontSize"
+             type="range"
+             min="8"
+             max="64"
+             value="12"
              oninput="theUpdate(value)" />
-      <output id="typeSize">10</output>
-      <script>
-        function theUpdate(vol) {
-          document.querySelector('#typeSize').value = vol;
-        }
-      </script>
+      <output id="typeSize">24</output>
     </div>
 
     <!-- Mock: font style select -->
     <div>
       <select id="fontSelect" name="select">
-        <option value="normal" selected>Normal</option>
-        <option value="bold" >Bold</option>
-        <option value="italic">Italic</option>
+        <option value="normal">Normal</option>
+        <option value="bold">Bold</option>
+        <option value="italic" selected>Italic</option>
       </select>
-      <p>You selected <span></span></p>
+      <p id="lineOfType">You selected <span id="youSelected"></span></p>
+    </div>
 
-      <script>
+    <script>
+
+        function theUpdate(vol) {
+          document.querySelector('#typeSize').value = vol;
+        }
+
+        var sizeSelect = document.getElementById('fontSize');
+        var fontSize = document.querySelector('#typeSize').value;
+        var youSelected = document.getElementById('lineOfType');
+        youSelected.style.fontSize = fontSize + 'px';
+
+        sizeSelect.addEventListener('change', function() {
+          var fontSize = document.querySelector('#typeSize').value;
+          var youSelected = document.getElementById('lineOfType');
+          youSelected.style.fontSize = fontSize + 'px';
+        })
+
         var fontSelect = document.getElementById('fontSelect');
+        var youSelected = document.getElementById('youSelected');
+
+        youSelected.innerHTML = fontSelect[fontSelect.selectedIndex].text;
 
         fontSelect.addEventListener('change', function() {
-          var fontOption = fontSelect.selectedIndex;
-          console.log(fontOption);
+          var selectIndex = fontSelect.selectedIndex;
+          var selectVal = fontSelect.options[selectIndex].value;
+          var selectText = fontSelect.options[selectIndex].text;
+          var youSelected = document.getElementById('youSelected');
+          var theLine = document.getElementById('lineOfType');
+          youSelected.innerHTML = selectText;
+          theLine.style.fontStyle = selectVal.toString();
+          theLine.style.fontWeight = selectVal.toString();
         })
+
       </script>
-    </div>
 
 
     <script src="/build/index.js"></script>
