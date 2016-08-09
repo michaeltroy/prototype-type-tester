@@ -1,15 +1,6 @@
-# Tiny Build
+# Type testing tool prototype
 
-Tired of dealing with a front-end mess for tiny websites or prototyping? Tiny Build aims to solve that problem.
-
-Say hello to Tiny Build:
-
-- NPM for package management (duh!)
-- NPM to run the scripts
-- Browserify to bundle the javascript
-- Babel the ES6 to ES5 transpiler
-- cssnext for transpiling the css
-- React for UI components
+Tool for testing type and fonts in the browser.
 
 ## Run the scripts
 
