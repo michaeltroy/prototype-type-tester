@@ -6,7 +6,6 @@ import { browserHistory, Router, Route, Link, History } from 'react-router'
 import TypeTester from './ui/type-tester' */
 
 /*
- - responsive slider
  - load in fonts
  - style
  */
@@ -17,8 +16,9 @@ import TypeTester from './ui/type-tester' */
  */
 
 var startFontSize = (44 + 'px');
-
 var slider = document.querySelector('.font_slider');
+
+document.querySelector('.font_sample-text').style.fontFamily = 'haymakerregular';
 document.querySelector('.font_size').value = startFontSize;
 
 slider.addEventListener('input', function() {
@@ -42,9 +42,9 @@ sampleText.style.fontSize = startFontSize;
 function setFont() {
   var selectIndex = fontSelectStyle.selectedIndex;
   var selectVal = fontSelectStyle.options[selectIndex].value;
-  var setFontWeight = sampleText.style.fontWeight = selectVal.toString();
-
-  return setFontWeight;
+  var setFont = sampleText.style.fontFamily = selectVal.toString();
+  console.log(setFont);
+  return setFont;
 }
 
 fontSelectStyle.addEventListener('change', function() {
