@@ -12,76 +12,29 @@
     <div id="content"></div>
 
     <!-- Mock: Slider -->
-    <div>
-      <input id="fontSize"
-             type="range"
-             min="12"
-             max="64"
-             value="44"
-             oninput="theUpdate(value)" />
-      <output id="typeSize">44</output>
+    <div class="font">
+      <div class="font_settings">
+        <input class="font_slider"
+               type="range"
+               min="16"
+               max="64"
+               value="44" />
+        <output class="font_size">00</output>
+      </div>
+
+      <!-- Mock: font style select -->
+      <div class="font_select">
+        <select class="font_select-style" name="select">
+          <option value="normal">Normal</option>
+          <option value="bold">Bold</option>
+          <option value="italic" selected>Italic</option>
+        </select>
+        <div>
+          <input class="font_sample-text" value="The quick brown fox" />
+        </div>
+
+      </div>
     </div>
-
-    <!-- Mock: font style select -->
-    <div>
-      <select id="fontSelect" name="select">
-        <option value="normal">Normal</option>
-        <option value="bold">Bold</option>
-        <option value="italic" selected>Italic</option>
-      </select>
-      <p id="lineOfType">
-        <input id="foxy" value="The quick brown fox" />
-      </p>
-    </div>
-
-    <script>
-
-        function theUpdate(vol) {
-          document.querySelector('#typeSize').value = vol;
-        }
-
-        var sizeSelect = document.getElementById('fontSize');
-        var fontSize = document.querySelector('#typeSize').value;
-        var youSelected = document.getElementById('lineOfType');
-        youSelected.style.fontSize = fontSize + 'px';
-
-        sizeSelect.addEventListener('change', function() {
-          var fontSize = document.querySelector('#typeSize').value;
-          var youSelected = document.getElementById('lineOfType');
-          youSelected.style.fontSize = fontSize + 'px';
-        })
-
-        var selectIndex = fontSelect.selectedIndex;
-        var fontSelect = document.getElementById('fontSelect');
-
-        var selectVal = fontSelect.options[selectIndex].value;
-        var theLine = document.getElementById('lineOfType');
-        theLine.style.fontStyle = selectVal.toString();
-        theLine.style.fontWeight = selectVal.toString();
-
-        fontSelect.addEventListener('change', function() {
-          var selectIndex = fontSelect.selectedIndex;
-          var selectVal = fontSelect.options[selectIndex].value;
-          var selectText = fontSelect.options[selectIndex].text;
-
-          var theLine = document.getElementById('lineOfType');
-
-          theLine.style.fontStyle = selectVal.toString();
-          theLine.style.fontWeight = selectVal.toString();
-        })
-
-        var foxy = document.querySelector('#foxy');
-        foxy.addEventListener('change', function() {
-          if (foxy.value === "hello") {
-            document.body.style.backgroundColor = "goldenrod";
-          } else {
-            document.body.style.backgroundColor = "white";
-          }
-        });
-
-
-      </script>
-
 
     <script src="/build/index.js"></script>
   </body>

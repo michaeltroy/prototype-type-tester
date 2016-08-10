@@ -20,4 +20,9 @@ class TypeTester extends React.Component {
   }
 }
 
+ReactDOM.render(
+  <TypeTester />,
+  document.getElementById('content')
+);
+
 export default TypeTester

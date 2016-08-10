@@ -6,8 +6,13 @@ body {
   padding: 24px;
 }
 
-input#foxy {
+input.font_sample-text {
+  padding:  24px 0;
   width: 100%;
   border:  none;
+}
+
+input.font_sample-text:focus {
+  outline: none;
 }
 
