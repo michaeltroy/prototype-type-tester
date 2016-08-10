@@ -21,10 +21,10 @@ var startFontSize = (44 + 'px');
 var slider = document.querySelector('.font_slider');
 document.querySelector('.font_size').value = startFontSize;
 
-slider.addEventListener('change', function() {
+slider.addEventListener('input', function() {
   document.querySelector('.font_sample-text').style.fontSize = (this.value + 'px');
   document.querySelector('.font_size').value = (this.value + 'px');
-})
+}, false)
 
 
 /**
