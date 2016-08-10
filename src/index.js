@@ -57,12 +57,17 @@ fontSelectStyle.addEventListener('change', function() {
  */
 
 var easterEgg = document.querySelector('.font_sample-text');
+var gify = "https://media.giphy.com/media/XYYWR1L9MEW0U/giphy.gif";
+var beastieContainer = document.querySelector('#beastieboys');
+var image = document.createElement('img');
 
-easterEgg.addEventListener('change', function() {
+image.src = gify;
+
+easterEgg.addEventListener('input', function() {
   console.log('easter time');
-  if (easterEgg.value === 'hello') {
-    document.body.style.backgroundColor = 'goldenrod';
+  if (easterEgg.value === 'beastieboys') {
+    beastieContainer.appendChild(image);
   } else {
-    document.body.style.backgroundColor = 'white';
+    beastieContainer.removeChild(image);
   }
 });
